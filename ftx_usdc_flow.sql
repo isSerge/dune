@@ -15,9 +15,7 @@ token_price_decimal_cte as (
     and contract_address = 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48
     and minute >= cast('2022-11-01' as TIMESTAMP)
     and minute <= cast('2022-11-11' as TIMESTAMP)
-  group by 1,
-    2,
-    3
+  group by 1, 2, 3
 ) 
 ,
 -- Inflows CTE
@@ -37,8 +35,7 @@ inflow_cte as (
       select address
       from address_cte
     )
-  group by 1,
-    2
+  group by 1, 2
 )
 ,
 -- Outflows CTE
@@ -58,8 +55,7 @@ outflow_cte as (
       select address
       from address_cte
     )
-  group by 1,
-    2
+  group by 1, 2
 )
 
 select * from inflow_cte
